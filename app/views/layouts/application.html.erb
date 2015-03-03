@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<header>
+  <h1>My Awesome Crowdfunder App</h1>
+</header>
+
+<% flash.each do |key, msg| %>
+  <p class="flash-<%= key %>"><%= msg %></p>
+<% end %>
+
 <%= yield %>
+
+<footer>
+  <small>Created by Maria Aranibar - 2015</small>
+</footer>
 
 </body>
 </html>
