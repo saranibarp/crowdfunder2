@@ -3,7 +3,7 @@
 <div class='description'>
   <%= @project.description %>
 </div>
-
+<br>
 <h3>Funding Levels</h3>
 <ul>
   <% @project.all_funding_levels.each do |f_level| %>
@@ -12,9 +12,8 @@
     </li>
   <% end %>
 </ul>
-<br>
 <%= link_to 'Add new funding level', new_project_funding_level_path(@project) %>
-
+<br><br>
 <h3>Pledges</h3>
 <ul>
   <% @project.all_pledges.each do |pledge| %>
@@ -23,6 +22,5 @@
     </li>
   <% end %>
 </ul>
-<br>
 <%= link_to 'Add new pledge', new_project_pledge_path(@project) %> 
-<br>
+<br><br>
