@@ -1,0 +1,23 @@
+<div class='errors'>
+  <ul>
+    <% @pledge.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_for([@project, @pledge]) do |f| %>
+  <%= f.label :project_id, 'Project:' %>
+  <%= @project.name %>
+  <br>
+  <%= f.label :name, 'Name:' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email, 'Email:' %>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :amount, 'Amount:' %>
+  <%= f.number_field :amount %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>

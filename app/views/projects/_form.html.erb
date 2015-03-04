@@ -1,0 +1,17 @@
+<div class='errors'>
+  <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_for @project do |f| %>
+  <%= f.label :name, 'What\'s the name of your Project?' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description, 'Tell us about it:' %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>

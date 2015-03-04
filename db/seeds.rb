@@ -26,8 +26,10 @@ names = ['Christina', 'Elder', 'Evelyn', 'Henrique', 'Jéssica', 'Kerene', 'Luca
 funding_level_ids = FundingLevel.pluck(:id)
  
 names.each do |name|
+  puts "adding pledge for #{name}"
   Pledge.create(
             name: name,
             email: "#{name.downcase}@example.com",
-            funding_level_id: funding_level_ids.sample)
+            funding_level_id: funding_level_ids.sample,
+            amount: 100 + rand(900))
 end

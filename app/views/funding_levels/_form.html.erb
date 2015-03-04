@@ -1,0 +1,20 @@
+<div class='errors'>
+  <ul>
+    <% @funding_level.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_for([@project, @funding_level]) do |f| %>
+  <%= f.label :project_id, 'Project:' %>
+  <%= @project.name %>
+  <br>
+  <%= f.label :reward_name, 'Reward:' %>
+  <%= f.text_field :reward_name %>
+  <br>
+  <%= f.label :amount, 'Amount:' %>
+  <%= f.number_field :amount %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>

@@ -1,0 +1,30 @@
+<h2><%= @project.name %></h2>
+
+<div class='description'>
+  <%= @project.description %>
+</div>
+
+<h3>Funding Levels</h3>
+<ul>
+  <% @project.all_funding_levels.each do |f_level| %>
+    <li>
+      <%= f_level.reward_name + ' - $' + f_level.amount.to_s %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<%= link_to 'Add new funding level', new_project_funding_level_path(@project) %>
+
+<h3>Pledges</h3>
+<ul>
+  <% @project.all_pledges.each do |pledge| %>
+    <li>
+      <%= pledge.name + ' (' + pledge.reward_name + ')' %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<%= link_to 'Add new pledge', new_project_pledge_path(@project) %> 
+<br>
+<p>Add a new pledge right here :)</p>
+<%= render :partial => "pledges/form", :locals => {:pledge => @pledge} %>
