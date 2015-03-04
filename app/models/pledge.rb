@@ -1,12 +1,12 @@
 class Pledge < ActiveRecord::Base
   belongs_to :funding_level
-  belongs_to :project
+  #belongs_to :project
 
   validates :funding_level_id, :name, :email, :amount, presence: true
-  validates :amount, numericality: { :greater_than => 0 }
+  validates :amount, numericality: { only_integer: true, :greater_than => 0 }
 
   def fetch_funding_level(project)
-    project.funding_levels.each do |level|
+    project.all_funding_levels.each do |level|
       if level.amount <= self.amount
         self.funding_level_id = level.id
       end

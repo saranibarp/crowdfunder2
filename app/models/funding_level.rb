@@ -4,5 +4,5 @@ class FundingLevel < ActiveRecord::Base
 
   validates :project_id, :reward_name, :amount, presence: true
   validates :reward_name, length: { minimum: 3 }
-  validates :amount, numericality: { :greater_than => 0 } 
+  validates :amount, numericality: { only_integer: true, :greater_than => 0 } 
 end

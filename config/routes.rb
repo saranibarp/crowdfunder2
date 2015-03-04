@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :projects
+  #resources :projects
   
-  resources :projects, only: [:index, :show] do
-    resources :funding_levels 
-    resources :pledges
+  resources :projects, only: [:index, :show, :new, :create] do
+    resources :funding_levels, only: [:new, :create] 
+    resources :pledges, only: [:new, :create]
   end
 
   root 'projects#index'
